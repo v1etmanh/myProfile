@@ -1,0 +1,637 @@
+/* ========================================
+   PORTFOLIO CSS - DATA-FIRST MINIMALIST DESIGN
+   Optimized for Technical Recruiter Review
+   ======================================== */
+
+/* ===== RESET & BASE CONFIGURATION ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* RECRUITER RATIONALE: Professional color palette with high contrast
+   - Primary Blue (#007BFF) signals technical competence
+   - Black text ensures maximum readability for scanning resumes
+   - Minimal color usage reduces cognitive load */
+:root {
+    --primary-color: #007BFF;
+    --primary-dark: #0056B3;
+    --text-primary: #1a1a1a;
+    --text-secondary: #4a4a4a;
+    --text-light: #6c757d;
+    --bg-white: #ffffff;
+    --bg-light: #f8f9fa;
+    --border-color: #e1e4e8;
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --transition-fast: 0.2s ease;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background-color: var(--bg-white);
+    /* RECRUITER RATIONALE: Slightly increased line-height improves readability */
+}
+
+/* ===== NAVIGATION BAR ===== */
+/* RECRUITER RATIONALE: Fixed navigation allows quick access to sections
+   during portfolio review without scrolling back to top */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: var(--bg-white);
+    border-bottom: 1px solid var(--border-color);
+    z-index: 1000;
+    transition: var(--transition-fast);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    letter-spacing: -0.5px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2.5rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color var(--transition-fast);
+    position: relative;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+/* RECRUITER RATIONALE: Subtle underline on hover provides visual feedback */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: width var(--transition-fast);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.mobile-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 4px;
+}
+
+.mobile-toggle span {
+    width: 24px;
+    height: 2px;
+    background: var(--text-primary);
+    transition: var(--transition-fast);
+}
+
+/* ===== HERO SECTION ===== */
+/* RECRUITER RATIONALE: Hero section prioritizes key information
+   - Name, title, and core competencies visible immediately
+   - Background image removed to prevent distraction from content
+   - White background ensures text is always readable */
+.hero {
+    margin-top: 70px;
+    padding: 80px 2rem 60px;
+    background: var(--bg-white);
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.hero::before {
+    display: none; /* Remove overlay for cleaner look */
+}
+
+.hero-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.hero-avatar {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    margin: 0 auto 2rem;
+    border: 3px solid var(--primary-color);
+    box-shadow: var(--shadow-md);
+    object-fit: cover;
+    background: var(--bg-light);
+}
+
+/* RECRUITER RATIONALE: Large, bold name ensures immediate recognition */
+.hero h1 {
+    font-size: 2.75rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+    letter-spacing: -1px;
+}
+
+/* RECRUITER RATIONALE: Position title uses accent color to stand out */
+.hero .position {
+    font-size: 1.25rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 2rem;
+}
+
+/* RECRUITER RATIONALE: Three-column achievement layout allows quick scanning
+   Each metric is immediately visible without scrolling */
+.hero-description {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+    text-align: left;
+}
+
+.hero-description p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    padding: 1.25rem;
+    background: var(--bg-light);
+    border-radius: 8px;
+    border-left: 3px solid var(--primary-color);
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* RECRUITER RATIONALE: Clear, high-contrast buttons for primary actions */
+.btn {
+    padding: 12px 28px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all var(--transition-fast);
+    display: inline-block;
+    border: 2px solid transparent;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: var(--bg-white);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark);
+    border-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-secondary:hover {
+    background: var(--primary-color);
+    color: var(--bg-white);
+}
+
+/* ===== SECTION LAYOUT ===== */
+section {
+    padding: 70px 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* RECRUITER RATIONALE: Section titles are prominent but not overwhelming
+   Bottom border provides visual separation without heavy styling */
+.section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    color: var(--text-primary);
+    padding-bottom: 0.75rem;
+    border-bottom: 3px solid var(--primary-color);
+    display: inline-block;
+}
+
+/* ===== SKILLS SECTION ===== */
+/* RECRUITER RATIONALE: Grid layout allows parallel comparison of skill categories
+   Technical recruiters can quickly assess frontend vs backend vs tools proficiency */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.skill-category {
+    background: var(--bg-white);
+    padding: 2rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    transition: var(--transition-fast);
+}
+
+.skill-category:hover {
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow-md);
+}
+
+/* RECRUITER RATIONALE: Category headers use accent color to organize information */
+.skill-category h3 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    border-bottom: 2px solid var(--bg-light);
+    padding-bottom: 0.5rem;
+}
+
+.skill-item {
+    margin-bottom: 1.25rem;
+}
+
+/* RECRUITER RATIONALE: Skill names are bold with percentage displayed
+   This provides immediate competency assessment without guesswork */
+.skill-name {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+}
+
+.skill-name span:last-child {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+/* RECRUITER RATIONALE: Progress bars provide visual competency indicators
+   Blue fill makes high-proficiency skills immediately visible */
+.skill-bar {
+    height: 8px;
+    background: var(--bg-light);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.skill-progress {
+    height: 100%;
+    background: var(--primary-color);
+    border-radius: 10px;
+    transition: width 1s ease;
+}
+
+/* ===== PROJECTS SECTION ===== */
+/* RECRUITER RATIONALE: This is the MOST CRITICAL section for technical hiring
+   Grid layout ensures equal visual weight for all projects */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 2rem;
+}
+
+/* RECRUITER RATIONALE: Cards have clear borders and structure
+   Hover effect indicates interactivity without being distracting */
+.project-card {
+    background: var(--bg-white);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: var(--transition-fast);
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover {
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-4px);
+}
+
+.project-content {
+    padding: 2rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* RECRUITER RATIONALE: Project titles are immediately visible and clickable-looking */
+.project-title {
+    color: var(--primary-color);
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+.project-description {
+    color: var(--text-secondary);
+    margin-bottom: 1.25rem;
+    line-height: 1.7;
+    font-size: 0.95rem;
+    flex: 1;
+}
+
+/* RECRUITER RATIONALE: Tech stack tags provide instant technology assessment
+   Tags are styled similarly to GitHub topics for familiarity */
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.tech-tag {
+    background: var(--bg-light);
+    color: var(--text-primary);
+    padding: 5px 12px;
+    border-radius: 16px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid var(--border-color);
+}
+
+/* RECRUITER RATIONALE: Project links are prominent and clearly actionable
+   Arrow indicators suggest external links */
+.project-links {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: auto;
+}
+
+.project-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: var(--transition-fast);
+    font-size: 0.95rem;
+}
+
+.project-link:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+.project-link span {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+/* ===== CONTACT SECTION ===== */
+.contact {
+    background: var(--bg-light);
+    padding: 70px 2rem;
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+}
+
+.contact-content {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-top: 2rem;
+}
+
+/* RECRUITER RATIONALE: Contact information is large and easily clickable
+   Email and social links are immediately accessible */
+.contact-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 1.05rem;
+    padding: 0.75rem;
+    background: var(--bg-white);
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+}
+
+.contact-item span:first-child {
+    font-size: 1.5rem;
+}
+
+.contact-item a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition-fast);
+}
+
+.contact-item a:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background: var(--text-primary);
+    color: var(--bg-white);
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.9rem;
+}
+
+footer p {
+    margin: 0.5rem 0;
+    opacity: 0.9;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+/* RECRUITER RATIONALE: Mobile optimization ensures portfolio is reviewable
+   on any device, including during commutes or quick phone checks */
+
+@media (max-width: 768px) {
+    .mobile-toggle {
+        display: flex;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--bg-white);
+        flex-direction: column;
+        padding: 1rem 0;
+        box-shadow: var(--shadow-md);
+        display: none;
+        gap: 0;
+        border-top: 1px solid var(--border-color);
+    }
+
+    .nav-links li {
+        padding: 0.75rem 2rem;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .nav-links li:last-child {
+        border-bottom: none;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hero {
+        padding: 60px 1.5rem 50px;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero .position {
+        font-size: 1.1rem;
+    }
+
+    .hero-description {
+        grid-template-columns: 1fr;
+        text-align: left;
+    }
+
+    .section-title {
+        font-size: 1.75rem;
+    }
+
+    section {
+        padding: 50px 1.5rem;
+    }
+
+    .skills-grid,
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-avatar {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 1.75rem;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    .project-content {
+        padding: 1.5rem;
+    }
+}
+
+/* ===== PRINT STYLES ===== */
+/* RECRUITER RATIONALE: Optimized for printing/PDF export
+   Removes unnecessary elements and ensures proper page breaks */
+@media print {
+    .navbar,
+    .mobile-toggle,
+    .hero-buttons {
+        display: none;
+    }
+
+    .hero {
+        margin-top: 0;
+        padding-top: 20px;
+    }
+
+    section {
+        page-break-inside: avoid;
+        padding: 30px 0;
+    }
+
+    .project-card,
+    .skill-category {
+        page-break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid var(--border-color);
+    }
+
+    a {
+        text-decoration: none;
+        color: var(--text-primary);
+    }
+
+    .project-link::after {
+        content: " (" attr(href) ")";
+        font-size: 0.8rem;
+        color: var(--text-light);
+    }
+}
+
+/* ===== PERFORMANCE & ACCESSIBILITY ===== */
+/* RECRUITER RATIONALE: Reduced motion for users with vestibular disorders */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Focus styles for keyboard navigation */
+a:focus,
+button:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* ========================================
+   END OF STYLESHEET
+   
+   KEY DESIGN PRINCIPLES APPLIED:
+   1. Data-First: Skills and projects are visually prominent
+   2. High Contrast: Black text on white ensures readability
+   3. Minimal Animation: Fast load times, professional appearance
+   4. Responsive: Works on all devices for recruiter convenience
+   5. Scannable: Clear hierarchy allows 10-second assessment
+   ======================================== */
